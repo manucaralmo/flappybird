@@ -30,7 +30,7 @@ class FlappyBird {
   }
 
   onKeyEvent(event) {
-    const status = event.type === 'keydown';
+    const status = event.type === 'keydown' || event.type === 'touchstart';
     switch (event.keyCode) {
       case KEY_UP:
         this.movements.up = status;

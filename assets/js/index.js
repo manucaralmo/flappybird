@@ -18,13 +18,11 @@ window.addEventListener('load', () => {
   game.start();
 
   game.canvas.addEventListener('touchstart', event => {
-    event.type = 'keydown';
     event.keyCode = KEY_UP;
     onKeyEvent(event, game);
   });
 
   game.canvas.addEventListener('touchend', event => {
-    event.type = 'keyup';
     event.keyCode = KEY_UP;
     onKeyEvent(event, game);
   });
