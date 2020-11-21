@@ -17,13 +17,13 @@ window.addEventListener('load', () => {
   });
   game.start();
 
-  document.addEventListener('touchstart', event => {
+  game.canvas.addEventListener('touchstart', event => {
     event.type = 'keydown';
     event.keyCode = KEY_UP;
     onKeyEvent(event, game);
   });
 
-  document.addEventListener('touchend', event => {
+  game.canvas.addEventListener('touchend', event => {
     event.type = 'keyup';
     event.keyCode = KEY_UP;
     onKeyEvent(event, game);
