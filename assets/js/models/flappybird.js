@@ -4,7 +4,7 @@ class FlappyBird {
     this.ctx = ctx;
     this.x = x;
     this.y = y;
-    this.jumpImpulse = 70;
+    this.jumpImpulse = 60;
     this.vy = 3;
 
     this.sprite = new Image();
