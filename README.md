@@ -1,5 +1,7 @@
 # FlappyiBird
 
+https://ironptsolutions.github.io/flappybird/index.html
+
 ## Iteración 1
 
 - Background: se compone de 2 imágenes
