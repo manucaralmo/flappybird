@@ -95,7 +95,9 @@ class Game {
 
   checkCollisions() {
     const pipe = this.pipes.some(pipe => this.flappybird.collides(pipe));
-    if (pipe || (this.flappybird.y + this.flappybird.height) >= this.background.y) {
+    if (pipe || 
+      (this.flappybird.y + this.flappybird.height) >= this.background.y || 
+      this.flappybird.y <= 0) {
       this.end();
     }
   }
