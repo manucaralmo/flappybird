@@ -1,6 +1,17 @@
 window.addEventListener('load', () => {
-  // iteration - 1: create & start the game
-  
-  
-  // iteration - 2: add key listeners to the game
+  const game = new Game('canvas-game')
+  game.start()
+
+  document.addEventListener('keydown', event => {
+    game.onKeyEvent(event)
+  })
+
+  document.addEventListener('keyup', event => {
+    game.onKeyEvent(event)
+  })
+
+  document.addEventListener('keypress', () => {
+    game.onKeyEvent()
+  })
+
 });
