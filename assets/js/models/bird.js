@@ -5,7 +5,7 @@ class Bird {
         this.y = 250
 
         this.vy = 0
-        this.gravity = 0.4
+        this.gravity = 0.6
 
         this.sprite = new Image()
         this.sprite.src = 'assets/img/bird.png'
@@ -25,7 +25,7 @@ class Bird {
             this.height = this.sprite.frameHeight
         }
 
-        this.moveUp = false
+        this.jump = false
     }
 
     isReady() {
@@ -51,12 +51,17 @@ class Bird {
     move() {
         this.vy += this.gravity
         this.y += this.vy
-        if(this.moveUp){
-            this.vy = -6
+
+        // Jump & animate
+        if(this.jump){
+            this.vy = -7
             this.animate()
         } else {
+            // Reset bird animation
             this.resetAnimation()
         }
+
+        // Check floor collision
         if (this.y >= 538){
             this.y = 538
         }
@@ -70,21 +75,24 @@ class Bird {
         }
     }
 
-    animateJump() {
-        
-    }
-
     resetAnimation() {
         this.sprite.horizontalFrameIndex = 0
-      }
+    }
+
+    checkCollisions(element) {
+        return this.x < element.x + element.width &&
+        this.x + this.width > element.x &&
+        this.y < element.y + element.height &&
+        this.y + this.height > element.y;
+    }
 
     onKeyEvent(event) {
-        const status = event.type === 'keydown'
+        const status = event.type === 'keydown' || event.type === 'touchstart';
 
         switch (event.keyCode) {
-            case 32:
-                this.moveUp = status
-              break;
-          }
+            case KEY_UP:
+                this.jump = status
+                break;
+        }
     }
 }
